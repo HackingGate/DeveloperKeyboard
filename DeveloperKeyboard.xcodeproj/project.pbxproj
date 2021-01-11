@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		C74A2DD725AC3A1600A552CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C74A2DD625AC3A1600A552CD /* Preview Assets.xcassets */; };
 		C74A2DE825AC3B4400A552CD /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A2DE725AC3B4400A552CD /* KeyboardViewController.swift */; };
 		C74A2DEC25AC3B4400A552CD /* Developer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C74A2DE525AC3B4400A552CD /* Developer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C74A2DF725AC3BEA00A552CD /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = C74A2DF625AC3BEA00A552CD /* SwiftUIX */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74A2DF725AC3BEA00A552CD /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,9 @@
 			dependencies = (
 			);
 			name = Developer;
+			packageProductDependencies = (
+				C74A2DF625AC3BEA00A552CD /* SwiftUIX */,
+			);
 			productName = Developer;
 			productReference = C74A2DE525AC3B4400A552CD /* Developer.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -183,6 +188,9 @@
 				Base,
 			);
 			mainGroup = C74A2DC325AC3A1500A552CD;
+			packageReferences = (
+				C74A2DF525AC3BEA00A552CD /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+			);
 			productRefGroup = C74A2DCD25AC3A1500A552CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -474,6 +482,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C74A2DF525AC3BEA00A552CD /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C74A2DF625AC3BEA00A552CD /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C74A2DF525AC3BEA00A552CD /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C74A2DC425AC3A1500A552CD /* Project object */;
 }
