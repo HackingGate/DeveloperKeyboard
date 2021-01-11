@@ -14,6 +14,9 @@
 		C74A2DE825AC3B4400A552CD /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A2DE725AC3B4400A552CD /* KeyboardViewController.swift */; };
 		C74A2DEC25AC3B4400A552CD /* Developer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C74A2DE525AC3B4400A552CD /* Developer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C74A2DF725AC3BEA00A552CD /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = C74A2DF625AC3BEA00A552CD /* SwiftUIX */; };
+		C74A2DFB25AC3C5300A552CD /* InputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A2DFA25AC3C5300A552CD /* InputViewModel.swift */; };
+		C74A2DFF25AC3E5F00A552CD /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A2DFE25AC3E5F00A552CD /* KeyboardView.swift */; };
+		C74A2E0325AC44A200A552CD /* InputModeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74A2E0225AC44A200A552CD /* InputModeControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		C74A2DE525AC3B4400A552CD /* Developer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Developer.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C74A2DE725AC3B4400A552CD /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		C74A2DE925AC3B4400A552CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C74A2DFA25AC3C5300A552CD /* InputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewModel.swift; sourceTree = "<group>"; };
+		C74A2DFE25AC3E5F00A552CD /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		C74A2E0225AC44A200A552CD /* InputModeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModeControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				C74A2DE725AC3B4400A552CD /* KeyboardViewController.swift */,
+				C74A2DFA25AC3C5300A552CD /* InputViewModel.swift */,
+				C74A2DFE25AC3E5F00A552CD /* KeyboardView.swift */,
+				C74A2E0225AC44A200A552CD /* InputModeControl.swift */,
 				C74A2DE925AC3B4400A552CD /* Info.plist */,
 			);
 			path = Developer;
@@ -234,7 +243,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C74A2DFF25AC3E5F00A552CD /* KeyboardView.swift in Sources */,
+				C74A2E0325AC44A200A552CD /* InputModeControl.swift in Sources */,
 				C74A2DE825AC3B4400A552CD /* KeyboardViewController.swift in Sources */,
+				C74A2DFB25AC3C5300A552CD /* InputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,10 +6,10 @@
 //
 
 import UIKit
+import SwiftUIX
 
 class KeyboardViewController: UIInputViewController {
-
-    @IBOutlet var nextKeyboardButton: UIButton!
+    var model: InputViewModel?
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -20,24 +20,45 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Perform custom UI setup here
-        self.nextKeyboardButton = UIButton(type: .system)
+        model = InputViewModel(
+            hasDictationKey: self.hasDictationKey,
+            hasFullAccess: self.hasFullAccess,
+            needsInputModeSwitchKey: self.needsInputModeSwitchKey
+        )
+        guard let model = model else {
+            fatalError("Unable to initialize InputViewModel()")
+        }
+        model.inputViewController = self
         
-        self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
-        self.nextKeyboardButton.sizeToFit()
-        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        let hostingContentView = UIHostingView(rootView: KeyboardView().environmentObject(model))
+        hostingContentView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+        self.view.addSubview(hostingContentView)
+
+        hostingContentView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        hostingContentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        hostingContentView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        hostingContentView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+    }
+    
+    func updateModel() {
+        // UITextDocumentProxy
+        let proxy = self.textDocumentProxy
+        model?.documentContextBeforeInput = proxy.documentContextBeforeInput
+        model?.documentContextAfterInput = proxy.documentContextAfterInput
+        model?.selectedText = proxy.selectedText
+        model?.documentInputMode = proxy.documentInputMode
         
-        self.view.addSubview(self.nextKeyboardButton)
-        
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        // UIInputViewController
+        model?.primaryLanguage = self.primaryLanguage
+        model?.hasDictationKey = self.hasDictationKey
+        model?.hasFullAccess = self.hasFullAccess
+        model?.needsInputModeSwitchKey = self.needsInputModeSwitchKey
     }
     
     override func viewWillLayoutSubviews() {
-        self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
+        updateModel()
     }
     
     override func textWillChange(_ textInput: UITextInput?) {
@@ -46,15 +67,6 @@ class KeyboardViewController: UIInputViewController {
     
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
-        
-        var textColor: UIColor
-        let proxy = self.textDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-            textColor = UIColor.white
-        } else {
-            textColor = UIColor.black
-        }
-        self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
 
 }
